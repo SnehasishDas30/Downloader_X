@@ -77,11 +77,12 @@ For major changes, please open an issue first.
 Keep the system stable – “jantra mode” recommended 😎
 
 #Screenshots 🖼️
-![Downloader_X Preview](screenshots/preview.jpg)
+![Downloader_X Preview](https://github.com/SnehasishDas30/Downloader_X/blob/9cc3d040136dc92cf6fc0b9069533181cf0c9de9/Screenshot%202026-01-28%20231752.png)
 
 
 
 #License 📝
 
 This project is open-source and free to use.
+
 
