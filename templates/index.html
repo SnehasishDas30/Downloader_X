@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project-X | Universal Downloader</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <h2>Universal Video Downloader</h2>
+  </div>
+
+  <div class="header-center">
+    <div class="download-managers">
+      <span>Download Managers</span>
+      <span class="menu-icon"><i class="fa-solid fa-bars"></i></span>
+      
+      <div class="dropdown-menu">
+        <a href="/dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="/download-contents"><i class="fa-solid fa-file-arrow-down"></i> Download Contents</a>
+        <!--<a href="/manage-password"><i class="fa-solid fa-key"></i> Manage Password</a>-->
+        <a href="/settings-for-users"><i class="fa-solid fa-user-gear"></i> User Settings</a>
+       <!-- <a href="/cloud-storage"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud Storage</a>-->
+      </div>
+    </div>
+    
+    <div class="auth-section">
+        {% if not session.get('user_name') %}
+            <a href="/login" class="btn">Login</a>
+            <a href="/signup" class="btn">Sign Up</a>
+            <a href="/guest-mode" class="btn guest">Guest</a>
+        {% else %}
+            <a href="/logout" class="btn-logout">Logout</a>
+        {% endif %}
+    </div>
+
+    <div class="center-user-info">
+        <div class="theme-switch">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </div>
+        <div class="user-pill">
+            <span class="status-dot"></span>
+            <span>
+                {% if session.get('user_name') %}
+                    {{ session['user_name'] }}
+                {% else %}
+                    Guest
+                {% endif %}
+            </span> 
+        </div>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <h2>Universal Music Downloader</h2>
+  </div>
+</header>
+
+<div class="project-title-container">
+    <h1 class="project-x-title">Downloader_X</h1>
+</div>
+
+<main>
+  <aside class="sidebar left-logos">
+    <div class="icon-wrap" title="YouTube"><i class="fa-brands fa-youtube"></i></div>
+    <div class="icon-wrap" title="Facebook"><i class="fa-brands fa-facebook-f"></i></div>
+    <div class="icon-wrap" title="Instagram"><i class="fa-brands fa-instagram"></i></div>
+    <div class="icon-wrap" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></div>
+    <div class="icon-wrap" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></div>
+    <div class="icon-wrap" title="Patreon"><i class="fa-brands fa-patreon"></i></div>
+    <div class="icon-wrap" title="Discord"><i class="fa-brands fa-discord"></i></div>
+  </aside>
+
+ <section class="center-panel">
+    <div class="url-box">
+      <input type="text" id="video-url" placeholder="Paste your link here...">
+      <button type="submit" id="preview-btn">Submit</button>
+    </div>
+
+    <div class="preview-box" id="preview-container">
+      <div class="preview-media" id="thumbnail-div">
+        <i class="fa-solid fa-clapperboard fa-3x" style="opacity: 0.1;"></i>
+        <p>Video preview will appear here</p>
+      </div>
+
+      <div class="preview-info">
+        <div class="source-group">
+          <small>Video Title</small><br>
+          <strong id="display-title">No video loaded</strong>
+        </div>
+        <div class="meta-group">
+          <strong id="display-meta">Length: -- | Site: --</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="format-box">
+      <select id="video-format">
+        <option value="mp4" selected>MP4 - High Quality</option>
+        <option value="mp3">MP3 - 320kbps</option>
+      </select>
+    </div>
+
+    <div class="download-box">
+      <button class="main-download-btn" id="start-download">DOWNLOAD NOW</button>
+    </div>
+
+    <div class="progress-container" id="prog-container" style="display: none;">
+        <div class="progress-bar-wrap">
+            <div class="progress-fill" id="prog-fill" style="width: 0%;"></div>
+        </div>
+        <small class="progress-text" id="prog-text">Downloading progress 0%</small>
+    </div>
+</section>
+
+  <aside class="sidebar right-logos">
+    <div class="icon-wrap" title="YouTube"><i class="fa-brands fa-youtube"></i></div>
+    <div class="icon-wrap" title="Facebook"><i class="fa-brands fa-facebook-f"></i></div>
+    <div class="icon-wrap" title="Instagram"><i class="fa-brands fa-instagram"></i></div>
+    <div class="icon-wrap" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></div>
+    <div class="icon-wrap" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></div>
+    <div class="icon-wrap" title="Patreon"><i class="fa-brands fa-patreon"></i></div>
+    <div class="icon-wrap" title="Discord"><i class="fa-brands fa-discord"></i></div>
+  </aside>
+</main>
+
+<section class="bottom-logos">
+  <div class="bottom-icon"><i class="fa-brands fa-twitch"></i><span>Twitch</span></div>
+  <div class="bottom-icon"><i class="fa-solid fa-music"></i><span>YouTube Music</span></div>
+  <div class="bottom-icon"><i class="fa-brands fa-instagram"></i><span>Instagram Reels</span></div>
+  <div class="bottom-icon"><i class="fa-brands fa-youtube"></i><span>YouTube Shorts</span></div>
+</section>
+
+<footer>
+  <p>Made by <strong>Snehasish Das</strong> • Created in 2026 • © All Rights Reserved</p>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

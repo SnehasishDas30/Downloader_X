@@ -1,0 +1,6 @@
+flask
+gunicorn
+yt-dlp==2025.01.15
+static-ffmpeg
+requests
+beautifulsoup4

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-X | Sign Up</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="center-panel auth-card">
+        <h1 class="project-x-title" style="font-size: 3rem; letter-spacing: 10px;">SIGN UP</h1>
+        <form action="/signup" method="POST" class="url-box" style="flex-direction: column;">
+            <input type="text" name="username" placeholder="Choose Username" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <button type="submit" class="main-download-btn">CREATE ACCOUNT</button>
+        </form>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">
+            Already a member? <a href="/login" style="color: #00f2ff;">Login here</a>
+        </p>
+    </div>
+</body>
+</html>

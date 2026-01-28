@@ -1,0 +1,1047 @@
+/* ================= GLOBAL RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+    min-height: 100vh; /* height: 100vh এর বদলে min-height ব্যবহার কর */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* hidden সরিয়ে auto বা scroll করে দে */
+    color: white;
+    background: #000;
+}
+/* ================= PROJECT-X TITLE (ENHANCED) ================= */
+.project-title-container {
+    text-align: center;
+    padding: 60px 0 20px 0; /* নেভবার থেকে আরও নিচে নামানোর জন্য প্যাডিং বাড়ানো হলো */
+    z-index: 5;
+    position: relative;
+}
+
+.project-x-title {
+    font-size: 6rem; /* আগের চেয়ে অনেক বড় করা হলো */
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 25px; /* বড় ফ্রন্টের সাথে সামঞ্জস্য রেখে গ্যাপ বাড়ানো হলো */
+    text-transform: uppercase;
+    
+    /* ডাইনামিক এবং কিলার নিয়ন গ্লো অ্যানিমেশন */
+    animation: neonPulse 3s infinite ease-in-out;
+    cursor: default;
+    user-select: none;
+    
+    /* হালকা থ্রি-ডি ইফেক্ট */
+    -webkit-text-stroke: 1px rgba(0, 242, 255, 0.3);
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 0 0 20px #00f2ff, 
+                     0 0 40px #00f2ff, 
+                     0 0 80px #00f2ff;
+        opacity: 1;
+        transform: translateY(0) scale(1.05);
+    }
+    50% {
+        text-shadow: 0 0 10px #00f2ff, 
+                     0 0 20px #00f2ff, 
+                     0 0 40px #00f2ff;
+        opacity: 0.5; /* হালকা অন্ধকার হওয়ার ইফেক্ট */
+        transform: translateY(5px) scale(1); /* হালকা নিচে নামা এবং ছোট হওয়া */
+    }
+}
+/* ================= 8 IMAGES SLIDING ANIMATION (5s Each) ================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  /* ১৫টি ইমেজের জন্য ৬০ সেকেন্ড দিলে প্রতিটি ইমেজ ৪ সেকেন্ড করে থাকবে */
+  animation: megaSlider 45s infinite ease-in-out;
+  transition: background-image 1.5s ease-in-out;
+}
+
+@keyframes megaSlider {
+  /* 1. YouTube/Streaming */
+  0%, 6.66% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1524748926522-ed32870e28ef?q=80&w=2070'); }
+  
+  /* 2. Studio Music */
+  6.67%, 13.33% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514525253344-af63fba8933b?q=80&w=2070'); }
+  
+  /* 3. Social Media Reels */
+  13.34%, 20% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2070'); }
+  
+  /* 4. Cinematic Shorts */
+  20.01%, 26.66% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2070'); }
+  
+  /* 5. Spotify/Music */
+  26.67%, 33.33% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070'); }
+  
+  /* 6. Video Editing */
+  33.34%, 40% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2070'); }
+  
+  /* 7. Concert Music */
+  40.01%, 46.66% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1459749411177-042180ce6742?q=80&w=2070'); }
+  
+  /* 8. Digital Cloud */
+  46.67%, 53.33% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=2070'); }
+  
+  /* 9. Movie Theater */
+  53.34%, 60% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070'); }
+  
+  /* 10. Headphone/Audio */
+  60.01%, 66.66% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070'); }
+  
+  /* 11. Smartphone Content */
+  66.67%, 73.33% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=2070'); }
+  
+  /* 12. Netflix/Home Cinema */
+  73.34%, 80% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=2070'); }
+  
+  /* 13. Camera/Photography */
+  80.01%, 86.66% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2070'); }
+  
+  /* 14. Neon Gaming/Video */
+  86.67%, 93.33% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070'); }
+  
+  /* 15. Global Media */
+  93.34%, 100% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070'); }
+}
+
+/* ================= NAV BAR (CENTRALIZED) ================= */
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left h2 {
+  color: #00e5ff;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-right h2 {
+  color: #00ffcc;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* ================= DOWNLOAD MANAGERS & DROPDOWN ================= */
+.download-managers {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #00f2ff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.download-managers:hover {
+  background: rgba(0, 229, 255, 0.2);
+}
+
+/* ড্রপডাউন মেনু স্টাইল */
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: 12px;
+  display: none;
+  /* শুরুতে লুকানো */
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+/* হোভার করলে মেনু দেখাবে */
+.download-managers:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 12px 20px;
+  color: #00f2ff !important;
+  /* ক্লিয়ার ফন্ট কালার */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(0, 242, 255, 0.15);
+  padding-left: 25px;
+}
+
+/* ================= CENTER USER INFO & THEME ================= */
+.center-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-pill {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 15px;
+  border-radius: 20px;
+  border: 1px solid #00ffcc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff00;
+}
+
+.theme-switch i {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #00f2ff;
+  transition: 0.3s;
+}
+
+.theme-switch i:hover {
+  transform: rotate(180deg);
+  text-shadow: 0 0 10px #00f2ff;
+}
+
+/* ================= MAIN LAYOUT ================= */
+main {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  gap: 40px;
+  padding: 40px;
+  flex: 1;
+  align-items: center;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.icon-wrap {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.icon-wrap i {
+  font-size: 1.4rem;
+}
+
+.icon-wrap:hover {
+  transform: scale(1.2);
+  border-color: #00e5ff;
+  box-shadow: 0 0 15px #00e5ff55;
+}
+
+/* Individual Icon Colors */
+.fa-youtube {
+  color: #ff0000;
+}
+
+.fa-facebook-f {
+  color: #1877f2;
+}
+
+.fa-instagram {
+  color: #e4405f;
+}
+
+.fa-x-twitter {
+  color: #fff;
+}
+
+.fa-pinterest-p {
+  color: #bd081c;
+}
+
+.fa-patreon {
+  color: #f96854;
+}
+
+.fa-discord {
+  color: #5865f2;
+}
+
+/* ================= CENTER PANEL ================= */
+.center-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.url-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.url-box input {
+  flex: 1;
+  padding: 15px 25px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+}
+
+.url-box button {
+  padding: 0 30px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #00e5ff, #0077ff);
+  color: black;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.preview-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.main-download-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(90deg, #00ffcc, #00b3ff);
+  color: black;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.main-download-btn:hover {
+  letter-spacing: 2px;
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+}
+
+/* Progress Bar */
+.progress-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.progress-bar-wrap {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f2ff, #bc13fe, #00f2ff);
+  background-size: 200% 100%;
+  animation: glowFill 2s linear infinite;
+}
+
+@keyframes glowFill {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ================= BOTTOM & FOOTER ================= */
+.bottom-logos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+}
+
+.bottom-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #888;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.bottom-icon:hover {
+  color: #00f2ff;
+  transform: translateY(-5px);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+  color: #666;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* ================= SELECT FORMAT SECTION ================= */
+.format-box {
+    width: 100%;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.format-box select {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.6); /* ডার্ক ব্যাকগ্রাউন্ড যাতে টেক্সট ক্লিয়ার থাকে */
+    color: #00f2ff; /* সিয়ান কালার টেক্সট */
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none; /* ডিফল্ট অ্যারো সরানোর জন্য */
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* ড্রপডাউন হোভার ইফেক্ট */
+.format-box select:hover {
+    border-color: #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    background: rgba(0, 242, 255, 0.05);
+}
+
+/* ড্রপডাউনের ভেতরের অপশনগুলোর স্টাইল */
+.format-box select option {
+    background: #111; /* অপশন লিস্টের ব্যাকগ্রাউন্ড */
+    color: #fff;
+    padding: 10px;
+}
+
+/* কাস্টম অ্যারো আইকন যোগ করা (ঐচ্ছিক) */
+.format-box::after {
+    content: '\f107'; /* FontAwesome Down Arrow */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00f2ff;
+    pointer-events: none;
+}
+/* ড্রপডাউন মেনুকে ফোর্সড ভিজিবল করার জন্য ক্লাস */
+.show-dropdown {
+    display: flex !important;
+}
+
+/* নেভবার যাতে সবার ওপরে থাকে */
+header {
+    z-index: 1001 !important; 
+    pointer-events: auto !important; /* ক্লিক যাতে ব্লক না হয় */
+}
+
+/* স্লাইডিং ব্যাকগ্রাউন্ডকে একদম পেছনে পাঠানোর জন্য */
+body::before {
+    z-index: -5 !important;
+}
+
+/* ================= LIGHT MODE TRANSPARENCY BOOST ================= */
+
+/* Body overlay আরও হালকা */
+body.light-mode::after {
+    background: rgba(224, 229, 236, 0.35) !important; /* আগে 0.6 ছিল */
+}
+
+/* সব glass panel আরও transparent */
+body.light-mode .center-panel,
+body.light-mode header,
+body.light-mode .dropdown-menu,
+body.light-mode .preview-box {
+    background: rgba(255, 255, 255, 0.18) !important;
+    backdrop-filter: blur(12px) saturate(160%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Sidebar icons আরও পরিষ্কার */
+body.light-mode .sidebar .icon-wrap {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid rgba(0, 242, 255, 0.6) !important;
+}
+
+/* ================= FOOTER / YT / SHORTS VISIBILITY FIX ================= */
+
+/* Footer container transparent but readable */
+body.light-mode footer {
+    background: rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Bottom icons (YT, Shorts, etc) */
+body.light-mode .bottom-icon {
+    color: #000 !important;
+    font-weight: 800;
+}
+
+/* Footer & bottom section icons */
+body.light-mode .bottom-icon i,
+body.light-mode footer i {
+    color: #000 !important;
+    opacity: 1 !important;
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+}
+
+/* Footer text */
+body.light-mode footer p,
+body.light-mode footer span {
+    color: #111 !important;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+/* ================= BACKGROUND IMAGE CLARITY BOOST ================= */
+
+/* Background image darker overlay remove */
+body.light-mode::before {
+    filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
+
+/* ================= AUTH SECTION STYLING ================= */
+.auth-section {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 2px; /* টাইটেল থেকে একটু নিচে */
+    z-index: 10;
+    position: relative;
+}
+
+.auth-section .btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 242, 255, 0.5);
+    color: #00f2ff;
+    background: rgba(0, 242, 255, 0.05);
+    backdrop-filter: blur(10px);
+    display: inline-block;
+}
+
+/* লগইন ও সাইনআপ বাটনে হোভার ইফেক্ট */
+.auth-section .btn:hover {
+    background: #00f2ff;
+    color: #000;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.6),
+                0 0 40px rgba(0, 242, 255, 0.2);
+}
+
+/* গেস্ট অ্যাকাউন্ট বাটনের জন্য আলাদা লুক */
+.auth-section .btn.guest {
+    border-color: rgba(0, 255, 204, 0.5);
+    color: #00ffcc;
+    background: rgba(0, 255, 204, 0.05);
+}
+
+.auth-section .btn.guest:hover {
+    background: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+}
+
+/* মোবাইল রেসপন্সিভনেস */
+@media (max-width: 600px) {
+    .auth-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+/* ================= LOGOUT BUTTON & SESSION STYLES ================= */
+
+/* লগআউট বাটনের জন্য স্পেশাল লালচে নিয়ন গ্লো */
+.auth-section .btn-logout {
+    border-color: rgba(255, 68, 68, 0.5) !important;
+    color: #ff4444 !important;
+    background: rgba(255, 68, 68, 0.05) !important;
+}
+
+.auth-section .btn-logout:hover {
+    background: #ff4444 !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.6),
+                0 0 40px rgba(255, 68, 68, 0.2) !important;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* ইউজার লগইন থাকলে ইউজার পিল-এর গ্লো বাড়িয়ে দেওয়া */
+body.user-logged-in .user-pill {
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+body.user-logged-in .status-dot {
+    background: #00f2ff;
+    box-shadow: 0 0 8px #00f2ff;
+}
+
+/* গেস্ট অ্যাকাউন্ট হিসেবে থাকলে পিল-এর আলাদা লুক */
+body.guest-mode .user-pill {
+    border-color: #00ffcc;
+}
+
+/* ড্রপডাউন মেনু যাতে লগআউট বাটনের ওপর না পড়ে যায় */
+.auth-section {
+    z-index: 1002; /* header-এর থেকেও একটু বেশি */
+}
+/* ================= LOGOUT & HEADER FIXES ================= */
+
+/* লগআউট বাটনকে আলাদাভাবে চেনার জন্য লাল নিয়ন ইফেক্ট */
+.btn-logout {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 15px;
+    text-decoration: none;
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: #ff4444;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+    transform: translateY(-2px);
+}
+
+/* বাটনগুলো যাতে মাঝখানে (User Info-এর পাশে) সুন্দর থাকে */
+.auth-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1002; /* ড্রপডাউন মেনুর সাথে ক্ল্যাশ আটকাবে */
+}
+
+.auth-section .btn {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    border-radius: 15px;
+}
+/* ================= TIGHT HEADER ALIGNMENT FIX ================= */
+
+/* হেডারকে ৩ ভাগে ভাগ করা হচ্ছে যাতে মাঝখানের কন্টেন্টগুলো নড়াচড়া না করে */
+header {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important; 
+    align-items: center !important;
+    gap: 15px !important;
+    padding: 10px 40px !important;
+}
+
+/* ম্যানেজার, বাটন এবং ইউজার পিলকে এক লাইনে আনার জন্য */
+.header-center {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    justify-content: center !important;
+}
+
+/* লগইন/গেস্ট বাটনগুলোকে ছোট পিল শেপ করা */
+.auth-section {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+.auth-section .btn {
+    padding: 5px 12px !important;
+    font-size: 0.7rem !important;
+    border-radius: 20px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+}
+
+/* লগআউট বাটন লাল নিয়ন গ্লো */
+.btn-logout {
+    padding: 5px 12px !important;
+    font-size: 0.7rem !important;
+    border: 1px solid #ff4444 !important;
+    color: #ff4444 !important;
+    background: rgba(255, 68, 68, 0.1) !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+}
+
+/* ডান দিকের টাইটেলটি যাতে একদম ডান দিকে ফিক্স থাকে */
+.header-right {
+    display: flex !important;
+    justify-content: flex-end !important;
+}
+
+.header-right h2 {
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+/* ================= তোর অরিজিনাল ক্লাসের প্রোফেশনাল আপডেট ================= */
+
+/* কোনো নতুন ক্লাস ছাড়াই তোর আগের টাইটেলকে কুল করার উপায় */
+.project-x-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 10px !important;
+    color: #fff !important;
+    /* ডাবল লেয়ার নিয়ন গ্লো */
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.8), 0 0 30px rgba(188, 19, 254, 0.5) !important;
+    margin-bottom: 35px !important;
+    display: block;
+}
+
+/* সেশন বা সিস্টেমের অটো-বাংলা ফন্ট ব্লক করার জন্য */
+body, h1, p, span {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+/* প্যানেলকে মাঝখানে পজিশন করার জন্য */
+.auth-page {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+}
+
+.center-panel {
+    margin: 0 auto !important; /* সেন্টার অ্যালাইন নিশ্চিত করবে */
+    width: 90% !important;
+    max-width: 900px !important;
+}
+/* হোম বাটনকে ক্লিয়ার এবং নিয়ন গ্লো দেওয়ার জন্য */
+.center-panel a.btn, .center-panel a[href="/"] {
+    position: relative !important;
+    color: #00f2ff !important; /* সায়ান কালার যা ব্যাকগ্রাউন্ডে ফুটবে */
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    padding: 8px 18px !important;
+    border: 1px solid rgba(0, 242, 255, 0.5) !important;
+    border-radius: 20px !important;
+    background: rgba(0, 242, 255, 0.05) !important;
+    transition: 0.3s !important;
+}
+
+.center-panel a.btn:hover {
+    background: rgba(0, 242, 255, 0.2) !important;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4) !important;
+}
+.project-x-title {
+    text-align: center !important;
+    letter-spacing: 12px !important;
+    text-shadow: 0 0 15px #00f2ff, 0 0 30px rgba(0, 242, 255, 0.5) !important;
+    margin-bottom: 40px !important;
+}
+/* ================= NEON DARK MODE LOGIC ================= */
+
+/* যখন বডিতে এই ক্লাসটি অ্যাড হবে তখন সব পাল্টে যাবে */
+body.neon-dark-mode {
+    background-color: #000 !important;
+    filter: brightness(0.9) contrast(1.1) !important;
+}
+
+body.neon-dark-mode .center-panel {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid #bc13fe !important; /* বর্ডার সায়ান থেকে ম্যাজেন্টা হয়ে যাবে */
+    box-shadow: 0 0 40px rgba(188, 19, 254, 0.2) !important;
+}
+
+body.neon-dark-mode .project-x-title, 
+body.neon-dark-mode h1 {
+    color: #fff !important;
+    text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 40px #bc13fe !important;
+}
+
+/* ইনপুট ফিল্ডের গ্লো পরিবর্তন */
+body.neon-dark-mode input {
+    border-color: rgba(188, 19, 254, 0.5) !important;
+}
+
+body.neon-dark-mode input:focus {
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.4) !important;
+}
+/* ================= STABLE NEON FIX (ANTI-SHAKE) ================= */
+
+/* 1️⃣ Project title animation override – only scale, no movement */
+.project-x-title {
+    animation: neonPulse 3s infinite ease-in-out !important;
+    will-change: transform, text-shadow;
+}
+
+/* Safe neon animation (NO translate / NO layout shift) */
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 20px #00f2ff,
+            0 0 40px #00f2ff;
+        transform: scale(1.03);
+    }
+    50% {
+        text-shadow: 
+            0 0 10px #00f2ff,
+            0 0 20px #00f2ff;
+        transform: scale(1);
+    }
+}
+
+/* 2️⃣ Kill ALL unwanted vertical movement globally */
+* {
+    animation-timing-function: linear !important;
+}
+
+/* 3️⃣ Background slider smooth (no visual jerk) */
+body::before {
+    animation-timing-function: linear !important;
+    transform: translateZ(0);
+    will-change: background-image;
+}
+
+/* 4️⃣ Stop layout shaking caused by GPU rounding */
+body {
+    overflow-x: hidden;
+    backface-visibility: hidden;
+}
+
+/* 5️⃣ Disable accidental transform animation on containers */
+header,
+main,
+.center-panel,
+.sidebar,
+footer {
+    transform: none !important;
+    animation: none !important;
+}
+/* ================= FULLY RESPONSIVE ENGINE REFINED ================= */
+
+/* 1️⃣ Desktop / Large screens (Default already) */
+body, main, .center-panel, .sidebar, header, footer {
+    /* Already handled in your main CSS */
+}
+
+/* 2️⃣ Tablet & small laptops (Max 1024px) */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 80px 1fr 80px !important;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .project-x-title {
+        font-size: 4rem !important;
+        letter-spacing: 15px !important;
+    }
+
+    .sidebar {
+        gap: 20px !important;
+    }
+
+    .url-box input, .url-box button {
+        padding: 12px !important;
+    }
+}
+
+/* 3️⃣ Mobile & larger phones (Max 768px) */
+@media (max-width: 768px) {
+    header {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 15px !important;
+        gap: 15px !important;
+        height: auto !important;
+    }
+
+    .header-left, .header-right {
+        display: none !important;
+    }
+
+    .header-center {
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    main {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 10px !important;
+    }
+
+    .sidebar {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        order: 2 !important;
+        width: 100% !important;
+    }
+
+    .icon-wrap {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .center-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+        order: 1 !important;
+    }
+
+    .url-box {
+        flex-direction: column !important;
+    }
+
+    .url-box input, .url-box button {
+        width: 100% !important;
+        border-radius: 10px !important;
+    }
+
+    .url-box button {
+        padding: 15px !important;
+    }
+
+    .bottom-logos {
+        gap: 15px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .project-x-title {
+        font-size: 2.8rem !important;
+        letter-spacing: 8px !important;
+        margin-bottom: 25px !important;
+    }
+}
+
+/* 4️⃣ Very small devices (Max 480px) */
+@media (max-width: 480px) {
+    .project-x-title {
+        font-size: 1.8rem !important;
+        letter-spacing: 4px !important;
+    }
+
+    .auth-section {
+        width: 100% !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .auth-section .btn {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 5px 10px !important;
+        font-size: 0.7rem !important;
+    }
+
+    .user-pill {
+        font-size: 0.8rem !important;
+        padding: 4px 10px !important;
+    }
+
+    .header-center {
+        gap: 8px !important;
+    }
+}
+
+/* 5️⃣ Landscape mode on small devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        position: relative !important;
+    }
+
+    .project-x-title {
+        font-size: 2rem !important;
+        margin-top: 10px !important;
+    }
+
+    main {
+        padding: 10px !important;
+    }
+}
+
+/* 6️⃣ Extra tweaks for readability & spacing */
+@media (max-width: 600px) {
+    .center-panel {
+        padding: 15px !important;
+    }
+
+    .url-box input, .url-box button {
+        font-size: 0.9rem !important;
+    }
+}
+

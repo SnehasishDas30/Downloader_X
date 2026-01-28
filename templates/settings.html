@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project-X | Settings</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="center-panel" style="max-width: 700px;">
+        <h1 class="project-x-title" style="font-size: 2.2rem;">SYSTEM SETTINGS</h1>
+        
+        <div style="text-align: left; margin-top: 30px;">
+            <div class="user-pill" style="margin-bottom: 20px; padding: 20px; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <label style="color: #00f2ff; font-size: 0.8rem; font-weight: bold;">DISPLAY NAME</label>
+                <input type="text" id="display-name" value="{{ session.get('user_name', 'Guest') }}" style="background: none; border: none; color: white; width: 100%; font-size: 1.2rem; outline: none;">
+            </div>
+
+<!--<div class="user-pill" id="dark-mode-btn" style="margin-bottom: 20px; padding: 20px; justify-content: space-between; cursor: pointer;">
+                <span>Dark Mode (Neon Aesthetic)</span>
+                <div id="dark-status" style="color: #00f2ff;">
+                    <i class="fa-solid fa-toggle-on fa-2xl"></i>
+                </div>
+            </div>-->
+
+            <div class="user-pill" id="auto-dl-btn" style="padding: 20px; justify-content: space-between; cursor: pointer;">
+                <span>Auto-Download on Submit</span>
+                <div id="dl-status" style="color: #888;">
+                    <i class="fa-solid fa-toggle-off fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <button class="main-download-btn" id="save-settings" style="flex: 1;">SAVE CHANGES</button>
+            <a href="/" class="btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">CANCEL</a>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>

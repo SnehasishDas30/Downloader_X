@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-X | Content History</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="center-panel" style="max-width: 900px; width: 90%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h1 class="project-x-title" style="font-size: 2.2rem; letter-spacing: 5px; margin: 0;">CONTENT HISTORY</h1>
+            <a href="/" class="btn" style="padding: 8px 20px; border-radius: 20px;">Back to Home</a>
+        </div>
+
+        <div class="preview-box" style="text-align: left; padding: 30px; margin-top: 20px;">
+            <h3 style="color: #00f2ff; margin-bottom: 20px; border-bottom: 1px solid rgba(0,242,255,0.2); padding-bottom: 10px;">
+                <i class="fa-solid fa-cloud-arrow-down"></i> Downloaded Contents
+            </h3>
+            
+            <div class="history-container" style="max-height: 500px; overflow-y: auto;">
+                {% if history %}
+                    <table style="width: 100%; border-collapse: collapse; color: #eee; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(0,242,255,0.3); text-align: left;">
+                                <th style="padding: 10px;">File Name</th>
+                                <th style="padding: 10px; text-align: right;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in history %}
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 15px 10px;">
+                                    <i class="fa-solid fa-file-audio" style="color: #bc13fe; margin-right: 10px;"></i>
+                                    {{ item.filename }}
+                                </td>
+                                <td style="padding: 15px 10px; text-align: right;">
+                                    <a href="{{ item.url }}" target="_blank" style="color: #00f2ff; text-decoration: none; font-weight: bold;">
+                                        Source <i class="fa-solid fa-external-link" style="font-size: 0.7rem;"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div style="text-align: center; padding: 50px 20px;">
+                        <i class="fa-solid fa-folder-open fa-3x" style="color: #333; margin-bottom: 15px;"></i>
+                        <p style="color: #666; font-size: 1.1rem;">No download history found yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
