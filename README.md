@@ -33,3 +33,37 @@
 ```bash
 git clone https://github.com/<your-username>/Downloader_X.git
 cd Downloader_X
+
+
+
+
+#Install dependencies:
+
+pip install -r requirements.txt
+
+
+Set up required files and folders:
+
+downloads/ → for storing downloaded media
+
+cookies.txt → optional, for YouTube login
+
+Run the Flask server:
+
+python app.py
+
+
+Server will be available at http://127.0.0.1:5000
+
+#Usage 📌
+
+Open the web interface in your browser.
+
+Paste the video URL into the input box.
+
+Click Preview to check the media.
+
+Click Download to start downloading.
+
+Monitor the progress bar for real-time updates.
+
