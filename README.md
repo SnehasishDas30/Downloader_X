@@ -33,7 +33,7 @@
 ```bash
 git clone https://github.com/<your-username>/Downloader_X.git
 cd Downloader_X
-
+```
 
 
 
@@ -67,3 +67,20 @@ Click Download to start downloading.
 
 Monitor the progress bar for real-time updates.
 
+
+#Contributing 🤝
+
+Pull requests are welcome.
+
+For major changes, please open an issue first.
+
+Keep the system stable – “jantra mode” recommended 😎
+
+#Screenshots 🖼️
+
+
+
+
+#License 📝
+
+This project is open-source and free to use.
